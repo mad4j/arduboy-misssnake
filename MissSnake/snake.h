@@ -4,6 +4,7 @@
 #include "point.h"
 #include "queue.h"
 
+#include "constants.h"
 
 struct Snake {
   
@@ -13,9 +14,7 @@ struct Snake {
     point direction;
     
     uint8_t grow;
-    uint8_t speed;
 
-    Snake();
     void init();
     void move();
    
@@ -24,19 +23,12 @@ struct Snake {
     bool checkBorder(const point& p1, const point& p2) const;
 };
 
-
-Snake::Snake() { }
-
 void Snake::init() 
 {
   direction = DIR_RIGHT;
-
   grow = 3;
-
-  head = point(18, 8);
+  head = SNAKE_START;
   body.reset();
-
-    speed = 1;
 }
 
 void Snake::move() 

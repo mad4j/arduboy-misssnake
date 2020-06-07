@@ -10,14 +10,14 @@ char highScoreText[4];         // Meilleur score à afficher
 
 
 static bool toBeInitFlag = true;
-static uint8_t counter = SNAKE_SPEED_INCR_COUNTER;
+static uint16_t counter = SNAKE_SPEED_INCR_COUNTER;
 static uint8_t speed = SNAKE_SPEED_START;
 static uint8_t score = 0;
 
 void drawGameField();
 
-void stateGameLoop() {
-
+void stateGameLoop() 
+{
   if (toBeInitFlag) {
     snake.init();
     food.replace(P1, P2);
@@ -76,9 +76,8 @@ void stateGameLoop() {
 
   counter--;
   if (counter == 0) {
-    if (speed > 0) {
+    if (speed > SNAKE_SPEED_END) {
       speed--;
-      
     }
     counter = SNAKE_SPEED_INCR_COUNTER;
   }

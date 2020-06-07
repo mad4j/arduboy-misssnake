@@ -5,7 +5,6 @@ void playPressTune()
   tunes.tone(425, 20);
 }
 
-
 void playAdvanceTune()
 {
   tunes.tone(512, 10);

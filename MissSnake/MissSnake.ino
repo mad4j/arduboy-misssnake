@@ -17,7 +17,6 @@ const Functionpointer PROGMEM  mainGameLoop[] = {
 
 void setup() 
 {
-
   arduboy.begin();
   
   tunes.initChannel(PIN_SPEAKER_1);
