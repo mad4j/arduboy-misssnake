@@ -31,19 +31,27 @@ void stateGameLoop()
   }
 
   if (arduboy.justPressed(UP_BUTTON)) {
-    snake.direction = DIR_UP;
+    if (snake.direction != DIR_DOWN) {
+      snake.direction = DIR_UP;
+    }
   }
 
   if (arduboy.justPressed(DOWN_BUTTON)) {
-    snake.direction = DIR_DOWN;
+    if (snake.direction != DIR_UP) {
+      snake.direction = DIR_DOWN;
+    }
   }
 
   if (arduboy.justPressed(LEFT_BUTTON)) {
-    snake.direction = DIR_LEFT;
+    if (snake.direction != DIR_RIGHT) {
+      snake.direction = DIR_LEFT;
+    }
   }
   
   if (arduboy.justPressed(RIGHT_BUTTON)) {
-    snake.direction = DIR_RIGHT;
+    if (snake.direction != DIR_LEFT) {
+      snake.direction = DIR_RIGHT;
+    }
   }
 
   if (arduboy.justPressed(A_BUTTON)) {

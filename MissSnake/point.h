@@ -11,6 +11,7 @@ struct point {
   point& operator=(const point& p);
   point& operator+=(const point& p);  
   bool operator==(const point& p) const;
+  bool operator!=(const point& p) const;
 
   bool within(const point& p1, const point& p2) const;
 
@@ -36,6 +37,11 @@ point& point::operator+=(const point& p)
 bool point::operator==(const point& p) const
 {
   return (x == p.x) && (y == p.y);
+}
+
+bool point::operator!=(const point& p) const
+{
+  return (x != p.x) || (y != p.y);
 }
 
 bool point::within(const point& p1, const point& p2) const 
