@@ -2,25 +2,24 @@
 
 #include "globals.h"
 #include "beeps.h"
+#include "sprites.h"
 
-static bool blinkingFlag = false;
+static uint8_t animCounter = 0;
 
 void stateMainIntro() {
 
-  arduboy.setTextSize(2);
-  arduboy.setCursor(10, 11);
-  arduboy.print("MissSnake");
+  arduboy.drawBitmap(52, 0, titleSprite, 55, 41, 1);
 
-  if (arduboy.everyXFrames(GAME_FRAME_RATE/2)) {
-    blinkingFlag = !blinkingFlag;
+  if (arduboy.everyXFrames(GAME_FRAME_RATE)) {
+    animCounter++;
   }
   
-  if (blinkingFlag) {
-    arduboy.setTextSize(1);
-    arduboy.setCursor(16, 44);
-    arduboy.print("press A to start");
+  if (animCounter%4 == 0) {
+    arduboy.drawBitmap(0, 0, titleSprite2, 52, 64, 1);
+  } else {
+    arduboy.drawBitmap(0, 0, titleSprite1, 52, 64, 1);
   }
-
+  
   if (arduboy.justPressed(A_BUTTON | B_BUTTON)) {
     playPressTune();
     gameState = STATE_GAME_LOOP;
