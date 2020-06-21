@@ -8,7 +8,7 @@ static uint8_t animCounter = 0;
 
 void stateMainIntro() {
 
-  arduboy.drawBitmap(52, 0, titleSprite, 55, 41, 1);
+  arduboy.drawBitmap(52, 0, titleSprite, 56, 41, 1);
 
   if (arduboy.everyXFrames(GAME_FRAME_RATE)) {
     animCounter++;
