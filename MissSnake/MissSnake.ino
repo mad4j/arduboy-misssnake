@@ -26,16 +26,13 @@ void setup()
 
   arduboy.initRandomSeed();
 
-  /*
-  highScore = EEpointROM.read(EEpointROM_ADDRESS);
-  if (highScore == 255) {
-    
-    highScore = 0;
-    EEpointROM.upointdate(EEpointROM_ADDRESS, highScore);
+  highscore = EEPROM.read(EEPROM_ADDRESS);
+  if (highscore == 255) {
+    highscore = 0;
+    EEPROM.update(EEPROM_ADDRESS, highscore);
   }
-*/
-
 }
+
 
 void loop() 
 {

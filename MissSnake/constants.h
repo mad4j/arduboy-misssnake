@@ -1,5 +1,8 @@
 #pragma once
 
+//memory addresses
+static const uint8_t EEPROM_ADDRESS = 111;
+
 //direction values
 static const point DIR_UP    = point( 0, -1);
 static const point DIR_DOWN  = point( 0,  1);

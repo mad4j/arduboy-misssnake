@@ -5,9 +5,6 @@
 #include "sprites.h"
 
 char scoreText[4];             // Score à afficher
-uint8_t highScore = 0;         // Meilleur score
-char highScoreText[4];         // Meilleur score à afficher 
-
 
 static bool toBeInitFlag = true;
 static uint16_t counter = SNAKE_SPEED_INCR_COUNTER;
@@ -76,6 +73,14 @@ void stateGameLoop()
 
   if (snake.checkBody() || snake.checkBorder(P1, P2)) {
     toBeInitFlag = true;
+
+    if (score > highscore) {
+      highscore = score;
+      EEPROM.write(EEPROM_ADDRESS, highscore);
+    } else {
+
+    }
+    
     gameState = STATE_MAIN_INTRO;
     playDeadTune();
   }
