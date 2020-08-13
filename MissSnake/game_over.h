@@ -25,7 +25,7 @@ void stateGameOver()
   printScore(48, 24, score, 2);
 
   if ((newHighscoreFlag) && (animCounter%2 == 0)) {
-    arduboy.drawBitmap(48, 56, newhighscoreSprite, 61, 6, WHITE);
+    arduboy.drawBitmap(32, 56, newhighscoreSprite, 61, 6, WHITE);
   }
   
   //check for keys

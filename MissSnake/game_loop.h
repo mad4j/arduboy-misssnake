@@ -49,11 +49,10 @@ void stateGameLoop()
   }
 
   if (arduboy.justPressed(A_BUTTON)) {
-    //toggle sound
   }
 
   if (arduboy.justPressed(B_BUTTON)) {
-    //toggle pause
+    arduboy.audio.toggle();
   }
   
   if (arduboy.everyXFrames(speed)) {
