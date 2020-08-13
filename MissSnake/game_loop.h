@@ -4,12 +4,9 @@
 #include "beeps.h"
 #include "sprites.h"
 
-char scoreText[4];             // Score à afficher
-
-static bool toBeInitFlag = true;
 static uint16_t counter = SNAKE_SPEED_INCR_COUNTER;
 static uint8_t speed = SNAKE_SPEED_START;
-static uint8_t score = 0;
+
 
 void drawGameField();
 
@@ -73,15 +70,7 @@ void stateGameLoop()
 
   if (snake.checkBody() || snake.checkBorder(P1, P2)) {
     toBeInitFlag = true;
-
-    if (score > highscore) {
-      highscore = score;
-      EEPROM.write(EEPROM_ADDRESS, highscore);
-    } else {
-
-    }
-    
-    gameState = STATE_MAIN_INTRO;
+    gameState = STATE_GAME_OVER;
     playDeadTune();
   }
 
@@ -100,23 +89,15 @@ void stateGameLoop()
 void drawGameField()
 {
   //draw border
-  arduboy.drawRect(2, 2, 124, 60, 1);
-
-  //draw score
-  arduboy.setTextSize(1);
-  arduboy.setCursor(49, 0);
-  arduboy.print("     ");
-  arduboy.setCursor(55, 0);
-  sprintf(scoreText, "%03u", score);
-  arduboy.print(scoreText);
+  arduboy.drawRect(2, 2, 124, 60, WHITE);
 
   //draw snake
-  arduboy.drawBitmap(snake.head.x*SPRITE_SIZE, snake.head.y*SPRITE_SIZE, snakeSprite, SPRITE_SIZE, SPRITE_SIZE, 1);
+  arduboy.drawBitmap(snake.head.x*SPRITE_SIZE, snake.head.y*SPRITE_SIZE, snakeSprite, SPRITE_SIZE, SPRITE_SIZE, WHITE);
   for (auto i=0; i<snake.body.size; i++) {
     const point& p = snake.body[i];
-    arduboy.drawBitmap(p.x*SPRITE_SIZE, p.y*SPRITE_SIZE, snakeSprite, SPRITE_SIZE, SPRITE_SIZE, 1);
+    arduboy.drawBitmap(p.x*SPRITE_SIZE, p.y*SPRITE_SIZE, snakeSprite, SPRITE_SIZE, SPRITE_SIZE, WHITE);
   }
 
   //draw food
-  arduboy.drawBitmap(food.x*SPRITE_SIZE, food.y*SPRITE_SIZE, foodSprite, SPRITE_SIZE, SPRITE_SIZE, 1);
+  arduboy.drawBitmap(food.x*SPRITE_SIZE, food.y*SPRITE_SIZE, foodSprite, SPRITE_SIZE, SPRITE_SIZE, WHITE);
 }
