@@ -17,15 +17,15 @@ void stateGameOver()
     toBeInitFlag = false;
   }
   
-  if (arduboy.everyXFrames(GAME_FRAME_RATE)) {
+  if (arduboy.everyXFrames(GAME_FRAME_RATE/2)) {
     animCounter++;
   }
 
-  arduboy.drawBitmap(32, 8, gameoverSprite, 62, 8, WHITE);
-  printScore(48, 24, score, 2);
+  arduboy.drawBitmap((128-116)/2, 8, gameoverSprite, 116, 16, WHITE);
+  printScore(48, 32, score, 2);
 
   if ((newHighscoreFlag) && (animCounter%2 == 0)) {
-    arduboy.drawBitmap(32, 56, newhighscoreSprite, 61, 6, WHITE);
+    arduboy.drawBitmap((128-61)/2, 56, newhighscoreSprite, 61, 6, WHITE);
   }
   
   //check for keys
