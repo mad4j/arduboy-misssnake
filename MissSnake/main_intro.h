@@ -28,9 +28,8 @@ void stateMainIntro()
 
   //draw mute icon, if needed
   if (!arduboy.audio.enabled()) {
-    arduboy.drawBitmap(112, 0, muteSprite, 13, 10, WHITE);
+    arduboy.drawBitmap(114, 0, muteSprite, 11, 7, WHITE);
   }
-
 
   //reset highscore
   if (arduboy.pressed(B_BUTTON | DOWN_BUTTON)) {

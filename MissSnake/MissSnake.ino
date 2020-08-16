@@ -8,11 +8,11 @@
 #include "snake.h"
 #include "sprites.h"
 
-#define SCREEN_MIRRORING 1
+#undef SCREEN_MIRRORING
 
 typedef void (*Functionpointer) ();
 
-const Functionpointer PROGMEM  mainGameLoop[] = {
+const Functionpointer PROGMEM mainGameLoop[] = {
   stateMainIntro,
   stateGameLoop,
   stateGameOver
