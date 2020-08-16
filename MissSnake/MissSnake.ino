@@ -8,6 +8,8 @@
 #include "snake.h"
 #include "sprites.h"
 
+#define SCREEN_MIRRORING 1
+
 typedef void (*Functionpointer) ();
 
 const Functionpointer PROGMEM  mainGameLoop[] = {
@@ -33,6 +35,10 @@ void setup()
     highscore = 0;
     EEPROM.update(EEPROM_ADDRESS, highscore);
   }
+
+#ifdef SCREEN_MIRRORING
+  Serial.begin(9600);
+#endif
 }
 
 
@@ -47,5 +53,9 @@ void loop()
   
   ((Functionpointer) pgm_read_word (&mainGameLoop[gameState]))();
   
+#ifdef SCREEN_MIRRORING
+  Serial.write(arduboy.getBuffer(), 128 * 64 / 8);
+#endif
+
   arduboy.display();
 }

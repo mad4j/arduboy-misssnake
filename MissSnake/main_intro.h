@@ -21,8 +21,9 @@ void stateMainIntro()
   }
 
   //draw highscore
-  printText(56, 44, "High Score", 1);
-  printScore(76, 56, highscore, 1);
+  arduboy.drawBitmap(60, 44, highscoreSprite, 40, 6, WHITE);
+  //printText(56, 44, "High Score", 1);
+  printScore(70, 54, highscore, 1);
 
 
   //draw mute icon, if needed

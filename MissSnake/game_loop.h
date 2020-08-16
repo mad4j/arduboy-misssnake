@@ -70,7 +70,6 @@ void stateGameLoop()
   if (snake.checkBody() || snake.checkBorder(P1, P2)) {
     toBeInitFlag = true;
     gameState = STATE_GAME_OVER;
-    playDeadTune();
   }
 
   drawGameField();

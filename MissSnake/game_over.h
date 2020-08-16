@@ -10,9 +10,11 @@ void stateGameOver()
     if (score > highscore) {
       highscore = score;
       EEPROM.write(EEPROM_ADDRESS, highscore);
-      newHighscoreFlag = true;    
+      newHighscoreFlag = true;
+      playWinTune();    
     } else {
-      newHighscoreFlag = false; 
+      newHighscoreFlag = false;
+      playDeadTune(); 
     }
     toBeInitFlag = false;
   }
