@@ -25,10 +25,9 @@ void stateMainIntro()
   //printText(56, 44, "High Score", 1);
   printScore(70, 54, highscore, 1);
 
-
   //draw mute icon, if needed
   if (!arduboy.audio.enabled()) {
-    arduboy.drawBitmap(114, 0, muteSprite, 11, 7, WHITE);
+    arduboy.drawBitmap(116, 0, muteSprite, 11, 7, WHITE);
   }
 
   //reset highscore
