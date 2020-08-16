@@ -1,0 +1,21 @@
+{ 
+     "title" : "MissSnake",
+     "description" : "Classic Snake game clone",
+     "version" : "1.0.0",     
+     "device" : "Arduboy",
+     "author" : "Daniele Olmisani",
+     "url" : "https://github.com/mad4j/arduboy-misssnake",
+     "genre" : "Arcade",
+     "buttonUp" : "up",
+     "buttonDown" : "down",
+     "buttonLeft" : "left",
+     "buttonRight" : "right",
+     "buttonA" : "start/exit",
+     "buttonB" : "toggle sound (on main screen)",
+     "date" : "August 2020",
+     "idea" : "Maria Segnalini",
+     "code" : "Daniele Olmisani",
+     "art" : "Luca Olmisani",
+     "sound" : "Daniele Olmisani",
+     "publisher" : "daniele.olmisani@gmail.com"
+}
