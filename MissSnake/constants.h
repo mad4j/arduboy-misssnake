@@ -16,10 +16,9 @@ static const point SNAKE_START = point(18, 8);
 
 //game timing values
 static const uint8_t GAME_FRAME_RATE   = 60;
-
-static const uint8_t SNAKE_SPEED_START = GAME_FRAME_RATE / 4;
+static const uint8_t SNAKE_SPEED_START = GAME_FRAME_RATE / 6;
 static const uint8_t SNAKE_SPEED_END   = GAME_FRAME_RATE / 12;
-static const uint16_t SNAKE_SPEED_INCR_COUNTER = 20 * GAME_FRAME_RATE;
+static const uint16_t SNAKE_SPEED_INCR_COUNTER = 30 * GAME_FRAME_RATE;
 
 //game states
 static const uint8_t STATE_MAIN_INTRO = 0;
