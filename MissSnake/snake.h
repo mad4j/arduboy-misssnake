@@ -21,6 +21,7 @@ struct Snake {
     bool checkFood(const point& food) const;
     bool checkBody() const;
     bool checkBorder(const point& p1, const point& p2) const;
+    bool checkOverlap(const point& p) const;
 };
 
 void Snake::init() 
@@ -56,4 +57,9 @@ bool Snake::checkBorder(const point& p1, const point& p2) const
 bool Snake::checkBody() const
 {
   return body.contains(head);
+}
+
+bool Snake::checkOverlap(const point& p) const
+{
+  return body.contains(p);
 }

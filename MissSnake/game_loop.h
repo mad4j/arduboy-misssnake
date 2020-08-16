@@ -62,7 +62,9 @@ void stateGameLoop()
     if (snake.checkFood(food)) {
       snake.grow++;
       score++;
-      food.replace(P1, P2);
+      do {
+        food.replace(P1, P2);
+      } while (snake.checkOverlap(food));
       playEatTune();
     }
   }
