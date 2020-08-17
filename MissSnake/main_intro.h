@@ -22,14 +22,13 @@ void stateMainIntro()
 
   //draw highscore
   arduboy.drawBitmap(60, 44, highscoreSprite, 40, 6, WHITE);
-  //printText(56, 44, "High Score", 1);
   printScore(70, 54, highscore, 1);
 
   //draw mute icon, if needed
   if (!arduboy.audio.enabled()) {
     arduboy.drawBitmap(116, 0, muteSprite, 11, 7, WHITE);
   }
-
+  
   //reset highscore
   if (arduboy.pressed(B_BUTTON | DOWN_BUTTON)) {
     if (highscore > 0) {
@@ -38,7 +37,7 @@ void stateMainIntro()
       EEPROM.write(EEPROM_ADDRESS, highscore);
     }
     
-  //enable sounds 
+  //toggle sound on/off 
   } else if (arduboy.justPressed(B_BUTTON)) {
     arduboy.audio.toggle();
 

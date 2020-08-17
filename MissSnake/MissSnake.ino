@@ -36,6 +36,10 @@ void setup()
     EEPROM.update(EEPROM_ADDRESS, highscore);
   }
 
+  //start from credits page
+  toBeInitFlag = true;
+  gameState = STATE_MAIN_INTRO;
+
 #ifdef SCREEN_MIRRORING
   Serial.begin(9600);
 #endif
